@@ -5,7 +5,7 @@ import math
 # S = P + (P * I * t / K) / 100
 
 # Name
-#  
+  
 '''S - the final amount received upon completion of the deposit;
    P - the amount initially deposited;
    I - the size of the % rate (per year);
