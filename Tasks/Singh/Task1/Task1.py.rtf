@@ -1,0 +1,59 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2639
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 +import math\
++ \
++  print("\uc0\u1042 \u1074 \u1077 \u1076 \u1080 \u1090 \u1077  \u1082 \u1086 \u1101 \u1092 \u1092 \u1080 \u1094 \u1080 \u1077 \u1085 \u1090 \u1099  \u1076 \u1083 \u1103  \u1091 \u1088 \u1072 \u1074 \u1085 \u1077 \u1085 \u1080 \u1103 ")\
++ a = int(input("a = "))\
++  b = int(input("b = "))\
++  c = int(input("c = "))\
++ \
++  discr = b ** 2 - 4 * a * c\
++  print("\uc0\u1044 \u1080 \u1089 \u1082 \u1088 \u1080 \u1084 \u1080 \u1085 \u1072 \u1085 \u1090  D = %.2f" % discr)\
++ \
++  if discr > 0:\
++      x1 = (-b + math.sqrt(discr)) / (2 * a)\
++      x2 = (-b - math.sqrt(discr)) / (2 * a)\
++      print("x1 = %.2f \\nx2 = %.2f" % (x1, x2))\
++  elif discr == 0:\
++      x = -b / (2 * a)\
++      print("x = %.2f" % x)\
++  else:\
++      print("\uc0\u1085 \u1077 \u1090  \u1082 \u1086 \u1088 \u1085 \u1077 \u1081 ")\
++ # n \'96 the number of performed operations for transferring interest to the body of the deposit during the full term of the contract;\
++ # S \'96 the amount of the deposit on the expiration date of the deposit, which the depositor will receive in his hands;;\
++ # \uc0\u1056  \'96 initially deposited amount with the possibility of capitalization;\
++ # N - % rate (annual);\
++ # d \'96 equals 30 - the number of days for which % is charged before capitalization;\
++ # D \'96 days in a year.\
++\
++\
++ P = 20000\
++ N = 15\
++ d = 30\
++ D = 365\
++ n = 60\
++ z = int(input("Enter 1 if you are interested in calculating the deposit with monthly capitalization, 0 if you are not interested in interest capitalization"))\
++ if z == 1:\
++     print("deposit balance", round(P *(1 + (N*d)/(100*D))**n, 2))\
++ else:\
++    print("deposit balance", round(P *(N * 5 /100 + 1)), 2)\
++\
++ \
++ \
++  from decimal import Decimal\
++  start_sum = Decimal('20000')\
++  interest_rate = Decimal('15')\
++  deposit_term_years = Decimal('5')\
++  capit_times_in_year = Decimal('12')\
++  z = int(input("Enter 1 if you are interested in calculating the deposit with monthly capitalization, 0 if you are not interested in interest capitalization"))\
++  if z == int(1):\
++      final_sum = start_sum * (1 + interest_rate/(100*capit_times_in_year))**(capit_times_in_year*deposit_term_years)\
++      print (round(final_sum, 2))\
++ else:\
++    final_sum = start_sum * (1 + (deposit_term_years*interest_rate)/100)\
++      print (round(final_sum, 2))}
