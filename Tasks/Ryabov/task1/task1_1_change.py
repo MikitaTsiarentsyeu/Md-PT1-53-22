@@ -1,6 +1,3 @@
-
-
-
 from decimal import Decimal
 start_sum = Decimal(input("Enter start sum"))
 interest_rate = Decimal(input("Enter interest rate"))
@@ -13,4 +10,3 @@ if z == int(1):
 else:
     final_sum = start_sum * (1 + (deposit_term_years*interest_rate)/100)
     print (round(final_sum, 2))
-
