@@ -1,0 +1,20 @@
+amount = int(input('Enter amount \n'))
+period = int(input('Enter number of years \n'))
+rate = float(input('Enter interest rate \n'))                      
+capitalization = input('Enter y or m \n')
+
+#income = amount + (amount * rate * period * 365/365) /100
+
+if capitalization == 'y':
+    days_per_year = period * 365
+    income = amount + int(amount * rate * (days_per_year / 365) / 100)
+    print(f'After {period} years your profit will be {income} rub')
+
+ #income = amount * (1 + rate / 1200)) ** period_per_month
+
+elif capitalization == 'm':
+    period_per_month = period * 12
+    income= int(amount * (1 + rate / 1200) ** period_per_month) 
+    print(f'In {period} years your profit will be {income} rub')
+
+
