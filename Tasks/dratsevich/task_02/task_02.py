@@ -7,7 +7,7 @@ data = {
 }
 
 phone_number = input('input phone number\n')
-if len(phone_number) == 10 and phone_number.isdigit():
+if len(phone_number) == 10 and phone_number.isdigit() and phone_number in data:
     obj = data.get(int(phone_number))
     print(f'{obj[0][0]} {obj[0][1]} from {obj[1][0]}, {obj[1][1]}')
 else:
