@@ -1,13 +1,18 @@
-eq = input("input your equation in format y=kx+b:\n")
-x = int(input("input the x value:\n"))
+data = {9103976271: [("Reina", "Meinhard"), ("Memphis", "Tennessee")],
+        4199392609: [("Stephanie", "Bruce"), ("Greensboro", "North Carolina")],
+        9099459979: [("Ermes", "Angela"), ("Dallas", "Texas")],
+        6123479367: [("Lorenza", "Takuya"), ("Indianapolis", "Indiana")],
+        7548993768: [("Margarete", "Quintin"), ("Raleigh", "North Carolina")]}
 
-print(eq, x)
+while True:
+    s = input("\nPlease enter the number: ")
+    if s.isdigit() and len(s) == 10:
+        number = int(s)
+        break
+    else:
+        print('\tIncorrect number')
 
-eq = eq.replace(" ", "").replace("y=", "")
-print(eq)
-
-coeff = eq.split('x')
-print(coeff)
-
-res = x*int(coeff[0])+int(coeff[1])
-print(f"the result is {res}")
+if number in data:
+    print(f'\t{data[number][0][0]} {data[number][0][1]} from {data[number][1][0]}, {data[number][1][1]}')
+else:
+    print('\tThe number was not found')
