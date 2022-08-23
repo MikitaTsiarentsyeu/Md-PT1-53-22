@@ -11,128 +11,74 @@ input_type = input("Enter 1 or 2:\n"
 # 1 or 2
 while True:
     if input_type == "1":
-        current_time1 = datetime.datetime.now()
-        hour = int(current_time1.time().strftime("%H"))
-        minute = int(current_time1.time().strftime("%M"))
-
-        # Condition
-
-        if hour > 12:
-            hour = hour - 12
-        if hour == 12:
-            hour = 0
-        if minute == 0:
-            print(f"Current time is: {hours[hour][2]}")
-            break
-        elif minute == 30:
-            print(f"Current time is: половина {hours[hour + 1][0]}")
-            break
-        elif minute == 20 or minute == 40:
-            print(f"Current time is: {minutes[minute]} минут {hours[hour + 1][0]}")
-            break
-        elif minute == 21:
-            print(f"Current time is: {minutes[20]} {minutes[minute - 20][0]} минута {hours[hour + 1][0]}")
-            break
-        elif minute == 31:
-            print(f"Current time is: {minutes[30]} {minutes[minute - 30][0]} минута {hours[hour + 1][0]}")
-            break
-        elif minute == 41:
-            print(f"Current time is: {minutes[40]} {minutes[minute - 40][0]} минута {hours[hour + 1][0]}")
-            break
-        elif 2 <= minute <= 4:
-            print(f"Current time is: {minutes[minute][0]} минуты {hours[hour + 1][0]}")
-        elif 5 < minute < 20:
-            print(f"Current time is: {minutes[minute][0]} минут {hours[hour + 1][0]}")
-            break
-        elif 22 <= minute < 30:
-            if 22 <= minute <= 24:
-                print(f"Current time is: {minutes[20]} {minutes[minute - 20][0]} минуты {hours[hour + 1][0]}")
-            else:
-                print(f"Current time is: {minutes[20]} {minutes[minute - 20][0]} минут {hours[hour + 1][0]}")
-                break
-        elif 32 <= minute < 40:
-            if 32 <= minute <= 34:
-                print(f"Current time is: {minutes[30]} {minutes[minute - 30][0]} минуты {hours[hour + 1][0]}")
-            else:
-                print(f"Current time is: {minutes[30]} {minutes[minute - 30][0]} минут {hours[hour + 1][0]}")
-                break
-        elif 42 <= minute <= 44:
-            print(f"Current time is: {minutes[40]} {minutes[minute - 40][0]} минуты {hours[hour + 1][0]}")
-        elif 45 <= minute <= 59:
-            if minute == 59:
-                print(f"Current time is: без одной минуты {hours[hour + 1][1]}")
-                break
-            else:
-                print(f"Current time is: без {minutes[60 - minute][1]} минут {hours[hour + 1][1]}")
-                break
+        current_time = datetime.datetime.now()
+        current_time = current_time.time().strftime("%H:%M")
         break
-
     elif input_type == "2":
         current_time = input("Enter time in format hh:mm\n")
-
-        # Verification
-
-        if len(current_time) == 5 and ":" in current_time and current_time.split(":")[0].isdigit() and current_time.split(":")[1].isdigit() and 0 <= int(current_time.split(":")[0]) <= 24 and 0 <= int(current_time.split(":")[1]) <= 59:
-            current_time = current_time.split(":")
-            hour = current_time[0]
-            minute = current_time[1]
-        else:
-            print("Incorrect time format")
-            break
-        hour = int(hour)
-        minute = int(minute)
-        
-        # Condition
-        
-        if hour > 12:
-            hour = hour - 12
-        if hour == 12:
-            hour = 0
-        if minute == 0:
-            print(f"Current time is: {hours[hour][2]}")
-            break
-        elif minute == 30:
-            print(f"Current time is: половина {hours[hour + 1][0]}")
-            break
-        elif minute == 20 or minute == 40:
-            print(f"Current time is: {minutes[minute]} минут {hours[hour + 1][0]}")
-            break
-        elif minute == 21:
-            print(f"Current time is: {minutes[20]} {minutes[minute - 20][0]} минута {hours[hour + 1][0]}")
-            break
-        elif minute == 31:
-            print(f"Current time is: {minutes[30]} {minutes[minute - 30][0]} минута {hours[hour + 1][0]}")
-            break
-        elif minute == 41:
-            print(f"Current time is: {minutes[40]} {minutes[minute - 40][0]} минута {hours[hour + 1][0]}")
-            break
-        elif 2 <= minute <= 4:
-            print(f"Current time is: {minutes[minute][0]} минуты {hours[hour + 1][0]}")
-        elif 5 < minute < 20:
-            print(f"Current time is: {minutes[minute][0]} минут {hours[hour + 1][0]}")
-            break
-        elif 22 <= minute < 30:
-            if 22 <= minute <= 24:
-                print(f"Current time is: {minutes[20]} {minutes[minute - 20][0]} минуты {hours[hour + 1][0]}")
-            else:
-                print(f"Current time is: {minutes[20]} {minutes[minute - 20][0]} минут {hours[hour + 1][0]}")
-                break
-        elif 32 <= minute < 40:
-            if 32 <= minute <= 34:
-                print(f"Current time is: {minutes[30]} {minutes[minute - 30][0]} минуты {hours[hour + 1][0]}")
-            else:
-                print(f"Current time is: {minutes[30]} {minutes[minute - 30][0]} минут {hours[hour + 1][0]}")
-                break
-        elif 42 <= minute <= 44:
-            print(f"Current time is: {minutes[40]} {minutes[minute - 40][0]} минуты {hours[hour + 1][0]}")
-        elif 45 <= minute <= 59:
-            if minute == 59:
-                print(f"Current time is: без одной минуты {hours[hour + 1][1]}")
-                break
-            else:
-                print(f"Current time is: без {minutes[60 - minute][1]} минут {hours[hour + 1][1]}")
-                break
         break
     else:
         input_type = input("Incorrect input, enter 1 or 2:\n")
 
+# Verification
+while True:
+    if len(current_time) == 5 and ":" in current_time and current_time.split(":")[0].isdigit() and current_time.split(":")[1].isdigit() and 0 <= int(current_time.split(":")[0]) <= 24 and 0 <= int(current_time.split(":")[1]) <= 59:
+            current_time = current_time.split(":")
+            hour = current_time[0]
+            minute = current_time[1]
+            hour = int(hour)
+            minute = int(minute)
+            break
+    else:
+        print("Incorrect time format")
+        current_time = input("Enter time in format hh:mm\n")
+
+# Condition
+if hour > 12:
+    hour = hour - 12
+if hour == 12:
+    hour = 0
+if minute == 0:
+    print(f"Current time is: {hours[hour][2]}")
+   
+elif minute == 30:
+    print(f"Current time is: половина {hours[hour + 1][0]}")
+   
+elif minute == 20 or minute == 40:
+    print(f"Current time is: {minutes[minute]} минут {hours[hour + 1][0]}")
+    
+elif minute == 21:
+    print(f"Current time is: {minutes[20]} {minutes[minute - 20][0]} минута {hours[hour + 1][0]}")
+
+elif minute == 31:
+    print(f"Current time is: {minutes[30]} {minutes[minute - 30][0]} минута {hours[hour + 1][0]}")
+  
+elif minute == 41:
+    print(f"Current time is: {minutes[40]} {minutes[minute - 40][0]} минута {hours[hour + 1][0]}")
+   
+elif 2 <= minute <= 4:
+    print(f"Current time is: {minutes[minute][0]} минуты {hours[hour + 1][0]}")
+elif 5 < minute < 20:
+    print(f"Current time is: {minutes[minute][0]} минут {hours[hour + 1][0]}")
+
+elif 22 <= minute < 30:
+    if 22 <= minute <= 24:
+        print(f"Current time is: {minutes[20]} {minutes[minute - 20][0]} минуты {hours[hour + 1][0]}")
+    else:
+        print(f"Current time is: {minutes[20]} {minutes[minute - 20][0]} минут {hours[hour + 1][0]}")
+     
+elif 32 <= minute < 40:
+    if 32 <= minute <= 34:
+        print(f"Current time is: {minutes[30]} {minutes[minute - 30][0]} минуты {hours[hour + 1][0]}")
+    else:
+        print(f"Current time is: {minutes[30]} {minutes[minute - 30][0]} минут {hours[hour + 1][0]}")
+        
+elif 42 <= minute <= 44:
+    print(f"Current time is: {minutes[40]} {minutes[minute - 40][0]} минуты {hours[hour + 1][0]}")
+elif 45 <= minute <= 59:
+    if minute == 59:
+        print(f"Current time is: без одной минуты {hours[hour + 1][1]}")
+    
+    else:
+        print(f"Current time is: без {minutes[60 - minute][1]} минут {hours[hour + 1][1]}")
+  
