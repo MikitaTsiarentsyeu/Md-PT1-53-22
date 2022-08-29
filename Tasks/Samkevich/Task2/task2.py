@@ -8,7 +8,9 @@ number = input("Enter the phone number in 10 characters:\n")
 
 if len(number) == 10 and number.isdigit() == True:
     phone_number = int(number)
-    print(f"{data.get(phone_number)[0][0]} {data.get(phone_number)[0][1]} from {data.get(phone_number)[1][0]}, {data.get(phone_number)[1][1]}.")
+    d = data.get(phone_number)
+    #print(f"{data.get(phone_number)[0][0]} {data.get(phone_number)[0][1]} from {data.get(phone_number)[1][0]}, {data.get(phone_number)[1][1]}.")
+    print(f"{d[0][0]} {d[0][1]} from {d[1][0]}, {d[1][1]}.")
 elif len(number) != 10 or number.isdigit() != True:
     print("Enter the correct phone number.")
 else:
