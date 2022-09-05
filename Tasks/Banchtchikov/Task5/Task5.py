@@ -33,11 +33,14 @@ def is_prime(number: int):
 
 
 def get_ranges(l: list): 
-    start = i
-    end = i          
+    start = None
+    end = None           
     l1 = []
     for i in l:
-        if end == i or end + 1 == i:
+        if start == None:
+            start = i
+            end = i
+        elif end == i or end + 1 == i:
             end = i
         else:
             l1.append((start, end))
@@ -47,4 +50,3 @@ def get_ranges(l: list):
     return l1
         
 
-print(get_ranges([1,2,3,4,7,8,9,14,15,16]))
