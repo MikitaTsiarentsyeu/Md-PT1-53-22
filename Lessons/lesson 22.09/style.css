@@ -1,0 +1,14 @@
+p {
+    color: red !important;
+}
+
+#main_text {
+    color:blue;
+    color: red;
+    border: solid black 3px;
+    margin-top: 50px;
+}
+
+.my_text {
+    color: blueviolet !important;
+}
