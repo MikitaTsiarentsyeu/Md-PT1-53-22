@@ -1,0 +1,56 @@
+p {
+    color: red !important;
+}
+
+#main_text {
+    color:blue;
+    color: red;
+    border: solid black 3px;
+    margin-top: 50px;
+}
+
+a {color: deeppink;}
+
+.my_text {
+    color: blueviolet !important;
+}
+
+#header {
+    background-color: blue;
+    display: flex;
+    justify-content: space-between;
+}
+
+#content {
+    background-color: aquamarine;
+    display: flex;
+    justify-content: center;
+}
+
+#footer {
+    background-color: darkgoldenrod;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+}
+
+#logo {
+    font-family: cursive;
+    color: yellow;
+    padding-left: 6%;
+}
+
+#login {
+    padding-top: 1%;
+    padding-right: 1%;
+}
+
+.side_column {
+    background-color: bisque;
+    width: 25%;
+}
+
+.main_column {
+    background-color:forestgreen;
+    width: 50%;
+}
