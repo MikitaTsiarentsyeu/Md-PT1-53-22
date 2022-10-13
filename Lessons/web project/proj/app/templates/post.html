@@ -1,23 +1,17 @@
-<!doctype html>
-<html>
-    <head>
-        <title>Post</title>
-    </head>
-    <body>
+{% extends 'base.html' %}
+
+{% block content %}
+    {% if post %}
         <div>
-            {% if post %}
-                <div>
-                    <h2>{{ post.title|capfirst }}</h2>
-                    <h3>{{ post.subtitle }}</h3>
-                    {% if post.image %}
-                        <img src="{{ post.image.url }}">
-                    {% endif %}
-                    <p>{{ post.content }}</p>
-                    <p>by {{ post.author.name }}</p>
-                </div>
-            {% else %}
-                <h2>We cannot find the post you're looking for</h2>
+            <h2>{{ post.title|capfirst }}</h2>
+            <h3>{{ post.subtitle }}</h3>
+            {% if post.image %}
+                <img class="blog-image" src="{{ post.image.url }}">
             {% endif %}
+            <p>{{ post.content }}</p>
+            <p>by {{ post.author.name }}</p>
         </div>
-    </body>
-</html>
+    {% else %}
+        <h2>We cannot find the post you're looking for</h2>
+    {% endif %}
+{% endblock content %}

@@ -1,0 +1,30 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>SuperBlog</title>
+        <link rel="stylesheet" href="{% static 'app/css/style.css' %}">
+    </head>
+    <body>
+        <div class="container main-container space-between">
+            <div id='logo'>
+                <a href="{% url 'posts' %}">
+                    <h1>SuperBlog</h1>
+                </a>
+            </div>
+            <div id='buttons'>
+                <a href="#">Login?</a>
+                <a href="{% url 'add_post' %}">Create post</a>
+            </div>
+        </div>
+        <div id="main-content" class="container" >
+            {% block content %}
+            {% endblock content %}
+        </div>
+        <div class="container main-container center">
+            <p>powered by Django</p>
+        </div>
+    </body>
+</html>

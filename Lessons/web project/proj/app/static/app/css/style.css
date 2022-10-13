@@ -1,0 +1,40 @@
+.container {
+    width:60%; 
+    margin:0 auto;
+}
+
+.main-container {
+    background-color: #ccc; 
+    display:flex;
+}
+
+.space-between {
+    justify-content: space-between;
+}
+
+.center {
+    justify-content: center;
+}
+
+.blog-list-item {
+    border-bottom: dotted 2px #ccc; 
+    padding-bottom: 5%;
+}
+
+.blog-image {
+    width: 80%
+}
+
+#logo {
+    padding-left: 5%;
+    font-family: cursive;
+}
+
+#buttons {
+    padding-top: 1%;
+    padding-right: 1%;
+}
+
+#main-content {
+    min-height: 48rem;
+}
