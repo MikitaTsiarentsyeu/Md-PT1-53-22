@@ -1,16 +1,21 @@
 from datetime import datetime
+import email
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .models import Post, Author
 from .forms import AddPost, AddModelPost
+from django.contrib.auth.decorators import permission_required
+
 
 # Create your views here.
 def home(request):
     return render(request, 'home.html')
 
 def posts(request):
+    'viewed_posts'
     all_posts = Post.objects.all().order_by("-issued")
-    return render(request, 'posts.html', {'posts':all_posts})
+    viewed_posts = request.session.get('viewed_posts', [])
+    return render(request, 'posts.html', {'posts':all_posts, 'viewed_posts': viewed_posts})
     # post_list = ""
     # for post in posts:
     #     post_list += f"<li><h3>{post.title}</h3><p>{post.author.name}</p></li>"
@@ -20,10 +25,15 @@ def posts(request):
 def post(request, id):
     try:
         p = Post.objects.get(id=id)
+        viewed_posts = request.session.get('viewed_posts', [])
+        if id not in viewed_posts:
+            viewed_posts.append(id)
+        request.session['viewed_posts'] = viewed_posts
     except:
         p = False
     return render(request, 'post.html', {'post':p})
 
+@permission_required('app.add_post')
 def add_post(request):
 
     if request.method == "POST":
@@ -31,7 +41,7 @@ def add_post(request):
 
         if form.is_valid():
             post = Post()
-            post.author = Author.objects.all()[0]
+            post.author = Author.objects.get(email=request.user.email)
             post.issued = datetime.now()
             post.title = form.cleaned_data["title"]
             post.subtitle = form.cleaned_data["subtitle"]
@@ -44,8 +54,7 @@ def add_post(request):
             return redirect('posts')
 
     else:
-        form = AddPost()
-
+        form = AddPost(initial={'title':'default title value'})
 
     return render(request, 'add_post.html', {'form':form})
 

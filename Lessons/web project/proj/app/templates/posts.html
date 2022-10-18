@@ -6,7 +6,11 @@
             <a href="{% url 'post' post.id %}">
                 <h2>{{ post.title|capfirst }}</h2>
             </a>
-            <h3>{{ post.subtitle }}</h3>
+            <h3>{{ post.subtitle }} 
+                {% if post.id in viewed_posts %}
+                    |viewed|
+                {% endif %}
+            </h3>
             {% if post.image %}
                 <img class="blog-image" src="{{ post.image.url }}">
             {% endif %}
